@@ -1,3 +1,42 @@
+## Instructions
+
+
+```sh
+npx react-native init rn_gestures_mbox_bug_report
+cd rn_gestures_mbox_bug_report
+yarn add @rnmapbox/maps react-native-gesture-handler
+```
+
+Modify podfile:
+```diff
+     {paths: [process.argv[1]]},
+   )', __dir__]).strip
+
++$RNMapboxMapsImpl = 'mapbox'
++
+ platform :ios, min_ios_version_supported
+ prepare_react_native_project!
+
+     # Pods for testing
+   end
+
++  pre_install do |installer|
++    $RNMapboxMaps.pre_install(installer)
++  end
++
+   post_install do |installer|
++    $RNMapboxMaps.post_install(installer)
+     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/re
+```
+
+```sh
+cd ios
+pod install
+```
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started

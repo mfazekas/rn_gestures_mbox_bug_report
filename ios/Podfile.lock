@@ -74,6 +74,15 @@ PODS:
     - hermes-engine/Pre-built (= 0.72.1)
   - hermes-engine/Pre-built (0.72.1)
   - libevent (2.1.12)
+  - MapboxCommon (23.6.0)
+  - MapboxCoreMaps (10.14.0):
+    - MapboxCommon (~> 23.6)
+  - MapboxMaps (10.14.0):
+    - MapboxCommon (= 23.6.0)
+    - MapboxCoreMaps (= 10.14.0)
+    - MapboxMobileEvents (= 1.0.10)
+    - Turf (~> 2.0)
+  - MapboxMobileEvents (1.0.10)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.07.22.00):
     - boost
@@ -484,7 +493,21 @@ PODS:
     - React-jsi (= 0.72.1)
     - React-logger (= 0.72.1)
     - React-perflogger (= 0.72.1)
+  - RNGestureHandler (2.12.0):
+    - React-Core
+  - rnmapbox-maps (10.0.9-rc.1):
+    - MapboxMaps (~> 10.14.0)
+    - React
+    - React-Core
+    - rnmapbox-maps/DynamicLibrary (= 10.0.9-rc.1)
+    - Turf
+  - rnmapbox-maps/DynamicLibrary (10.0.9-rc.1):
+    - MapboxMaps (~> 10.14.0)
+    - React
+    - React-Core
+    - Turf
   - SocketRocket (0.6.1)
+  - Turf (2.6.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -552,6 +575,8 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - "rnmapbox-maps (from `../node_modules/@rnmapbox/maps`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -567,8 +592,13 @@ SPEC REPOS:
     - FlipperKit
     - fmt
     - libevent
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxMaps
+    - MapboxMobileEvents
     - OpenSSL-Universal
     - SocketRocket
+    - Turf
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -649,6 +679,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
+  rnmapbox-maps:
+    :path: "../node_modules/@rnmapbox/maps"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -670,6 +704,10 @@ SPEC CHECKSUMS:
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: 9df83855a0fd15ef8eb61694652bae636b0c466e
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
+  MapboxCommon: 4a0251dd470ee37e7fadda8e285c01921a5e1eb0
+  MapboxCoreMaps: eb07203bbb0b1509395db5ab89cd3ad6c2e3c04c
+  MapboxMaps: af50ec61a7eb3b032c3f7962c6bd671d93d2a209
+  MapboxMobileEvents: de50b3a4de180dd129c326e09cd12c8adaaa46d6
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: c52ee8fb2b35c1b54031dd8e92d88ad4dba8f2ce
@@ -703,10 +741,13 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 67707a955b9ecc628cc38bdc721fbc498910f0fd
   React-utils: 0a70ea97d4e2749f336b450c082905be1d389435
   ReactCommon: e593d19c9e271a6da4d0bd7f13b28cfeae5d164b
+  RNGestureHandler: dec4645026e7401a0899f2846d864403478ff6a5
+  rnmapbox-maps: 42ff173c56110e36fd0154a0fc842a49541e736d
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
+  Turf: 469ce2c3d22e5e8e4818d5a3b254699a5c89efa4
   Yoga: 65286bb6a07edce5e4fe8c90774da977ae8fc009
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f5b8b8901812cc94979e6eb082cb4729f1d69fcc
+PODFILE CHECKSUM: 3a2233a6d5c96d6752803a1799a363b43a595389
 
 COCOAPODS: 1.12.1
