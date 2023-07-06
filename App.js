@@ -1,55 +1,3 @@
-## Instructions
-
-
-```sh
-npx react-native init rn_gestures_mbox_bug_report
-cd rn_gestures_mbox_bug_report
-yarn add @rnmapbox/maps react-native-gesture-handler
-```
-
-Modify podfile:
-```diff
-     {paths: [process.argv[1]]},
-   )', __dir__]).strip
-
-+$RNMapboxMapsImpl = 'mapbox'
-+
- platform :ios, min_ios_version_supported
- prepare_react_native_project!
-
-     # Pods for testing
-   end
-
-+  pre_install do |installer|
-+    $RNMapboxMaps.pre_install(installer)
-+  end
-+
-   post_install do |installer|
-+    $RNMapboxMaps.post_install(installer)
-     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/re
-```
-
-
-Add the following to your .netrc:
-
-```sh
-machine api.mapbox.com
-  login mapbox
-  password sk.eyJ1IjoiZmF6ZWthc2h1emFyIiwiYSI6ImNsanFzemtvdDAzMHUzcW1td2t3d3J6a2UifQ.1JtPNDjbRxQII3bLN4tVPQ
-
-```
-
-```sh
-cd ios
-pod install
-```
-
-
-
-
-Use the following code for your App.js component:
-
-```jsx
 import React from 'react';
 import { TouchableOpacity, Image, View, Text, Animated } from 'react-native';
 import Mapbox, { MarkerView, MapView, Camera } from '@rnmapbox/maps';
@@ -127,4 +75,3 @@ const MapWPanGestureHandler = () => {
 
 //export default MapWoPanGestureHandler;
 export default MapWPanGestureHandler;
-```
